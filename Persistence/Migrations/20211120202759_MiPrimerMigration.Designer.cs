@@ -10,7 +10,7 @@ using Persistence.Contexts;
 namespace Persistence.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20211120023957_MiPrimerMigration")]
+    [Migration("20211120202759_MiPrimerMigration")]
     partial class MiPrimerMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

@@ -1,0 +1,25 @@
+version: "3.9"
+
+volumes:
+  mssql-volume:
+    name: base-api-sqldata
+
+services:
+  sql-server:
+    container_name: sql-server
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    restart: unless-stopped
+    environment:
+      ACCEPT_EULA=Y: Y
+      SA_PASSWORD: Gabiin123%
+      MSSQL_PID: Express
+    volumes:
+      - mssql-volume:/var/opt/mssql
+    ports:
+      - 1433:1433
+  
+  redis-server:
+    image: "redis:alpine"
+    command: redis-server --save 60 1 --requirepass Gabiin123% --loglevel warning
+    ports:
+      - "6379:6379"
